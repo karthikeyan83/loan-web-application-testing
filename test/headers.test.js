@@ -40,9 +40,8 @@ describe('Loan Header', () => {
     expect(nlBtn.classList.contains('btn-cursor')).to.be.false;
     expect(enBtn.classList.contains('btn-cursor')).to.be.true;
     expect(enBtn.classList.contains('bg-btn-color')).to.be.false;
-    const paragraphs = el.shadowRoot.querySelector('header').querySelector('p');
-    expect(paragraphs.textContent.contains('Apply Loan')).to.be.true;
-
+    const paragraph = el.shadowRoot.querySelector('header').querySelector('p');
+    expect(paragraph.textContent.includes('Apply Loan')).to.be.true;
   });
 
   it('does not change locale if button is not in btn-cursor state', async () => {
