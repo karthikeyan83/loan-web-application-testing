@@ -1,6 +1,7 @@
 import { html, fixture, expect } from '@open-wc/testing';
-import sinon from 'sinon';
+import sinon from 'sinon'
 import '../src/LoanEMIDetails/LoanEMIDetails.js';
+import '../src/dashboard/Dashboard-overview.js';
 
 describe('Loan EMI details', () => {
   beforeEach(() => {
@@ -52,5 +53,41 @@ describe('Loan EMI details', () => {
     const el = await fixture(html`<loanemi-details></loanemi-details>`);
     const host = el.shadowRoot.host;
     expect(getComputedStyle(host).display).to.equal('block');
+  });
+});
+
+describe('DashboardOverview', () => {
+  it('is registered as a custom element', () => {
+    expect(customElements.get('dashboard-overview')).to.exist;
+  });
+
+  it('renders a container with dashboard cards', async () => {
+    const el = await fixture(html`<dashboard-overview></dashboard-overview>`);
+    const container = el.shadowRoot.querySelector('.container');
+    expect(container).to.exist;
+    // Should render 4 dashboard-menu cards
+    const cards = container.querySelectorAll('dashboard-menu');
+    expect(cards.length).to.equal(4);
+  });
+
+  it('dashboard cards have correct titles and images', async () => {
+    const el = await fixture(html`<dashboard-overview></dashboard-overview>`);
+    const cards = el.shadowRoot.querySelectorAll('dashboard-menu');
+    const expected = [
+      { title: 'Home Loan', image: 'images/Home-Loans.jpg' },
+      { title: 'Personal Loan', image: 'images/personal-Loan.jpg' },
+      { title: 'Car Loan', image: 'images/car loan.jpg' },
+      { title: 'Vacation Loan', image: 'images/vacation-loans.jpg' }
+    ];
+    cards.forEach((card, i) => {
+      expect(card.getAttribute('title')).to.equal(expected[i].title);
+      expect(card.getAttribute('imageURL')).to.include(expected[i].image);
+    });
+  });
+
+  it('applies correct styling to container', async () => {
+    const el = await fixture(html`<dashboard-overview></dashboard-overview>`);
+    const container = el.shadowRoot.querySelector('.container');
+    expect(getComputedStyle(container).display).to.equal('flex');
   });
 });
