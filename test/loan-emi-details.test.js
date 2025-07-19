@@ -23,7 +23,7 @@ describe('Loan EMI details', () => {
     expect(el._data.monthlyEMI).to.equal(1200);
     expect(el._data.principal).to.equal(100000);
     expect(el._data.interest).to.equal(20000);
-    expect(el._data.totalAmount).to.equal(120000
+    expect(el._data.totalAmount).to.equal(120000);
     const emiDetails = el.shadowRoot.querySelector('.emi-details');
     expect(emiDetails).to.exist;
     expect(emiDetails.textContent).to.include('8.5');
