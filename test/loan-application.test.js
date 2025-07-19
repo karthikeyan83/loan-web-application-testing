@@ -4,7 +4,7 @@ import '../loan-application.js';
 import '../src/dashboard/Dashboard-menu.js';
 
 describe('LoanApplication', () => {
-  it('renders the image and title passed as properties', async () => {
+  it('Renders the Loan application Dashboard with Image and Title', async () => {
     const el = await fixture(html`
       <dashboard-menu imageURL="test.jpg" title="Home Loan"></dashboard-menu>
     `);
@@ -29,7 +29,7 @@ describe('LoanApplication', () => {
     setItemStub.restore();
   });
 
-  it('has expected default styles applied', async () => {
+  it('check the Loans are applied with correct css styles', async () => {
     const el = await fixture(html`
       <dashboard-menu imageURL="img.jpg" title="Personal Loan"></dashboard-menu>
     `);

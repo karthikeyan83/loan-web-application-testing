@@ -5,7 +5,6 @@ import '../src/dashboard/Dashboard-overview.js';
 
 describe('Loan EMI details', () => {
   beforeEach(() => {
-    // Mock localStorage data for the component
     const mockEMI = {
       interestRate: 8.5,
       monthlyEMI: 1200,
@@ -65,7 +64,6 @@ describe('DashboardOverview', () => {
     const el = await fixture(html`<dashboard-overview></dashboard-overview>`);
     const container = el.shadowRoot.querySelector('.container');
     expect(container).to.exist;
-    // Should render 4 dashboard-menu cards
     const cards = container.querySelectorAll('dashboard-menu');
     expect(cards.length).to.equal(4);
   });

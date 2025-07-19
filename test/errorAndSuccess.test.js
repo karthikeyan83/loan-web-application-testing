@@ -11,9 +11,6 @@ describe('Success screen ', () => {
       expect(el.shadowRoot.querySelector('p')).to.exist;
       expect(el.shadowRoot.querySelector('lion-button')).to.exist;
     });
-
-  
-
     it('is registered as a custom element', () => {
       expect(customElements.get('loan-success')).to.exist;
     });
@@ -33,9 +30,6 @@ it('has correct styles applied', async () => {
   expect(style.textAlign).to.equal('center');
   expect(style.fontFamily).to.include('monospace');
 });
-
-
-
 it('is registered as a custom element', () => {
   expect(customElements.get('loan-error')).to.exist;
 });
